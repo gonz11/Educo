@@ -1,0 +1,51 @@
+{% extends 'baseaccountpage.html' %}
+
+{% block nav_home %}
+{% endblock %}
+
+{% block nav_login %}
+active
+{% endblock %}
+
+{% block contenido %}
+<!-- Page Content-->
+    <div class="container b-none my-2">
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12">
+          {%block content_register %}
+        <div class="col-12 text-center">
+          <h3>Inicia sesion</h3>
+        </div>
+
+          <form class="card border-0" method="post" id="login_form" action="{{ request.get_full_path }}">
+            {%csrf_token%}
+            <div class="card-body">
+              {% include 'form_errors.html' with form=login_form %}
+
+              <div class="form-group input-group mt-4">
+                <input class="form-control" type="email" name="email" id="id_email"
+                       placeholder="Email" required><span class="input-group-addon">
+                  <i class="icon-mail"></i></span>
+              </div>
+              <div class="form-group input-group">
+                <input class="form-control" type="password" name="password" id="id_password"
+                       placeholder="Contraseña" required><span class="input-group-addon">
+                  <i class="icon-lock"></i></span>
+              </div>
+              <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
+                <small><a class="navi-link" href="{% url 'signup_page' %}">Crear cuenta</a></small>
+                <div class="custom-control custom-checkbox">
+                </div>
+                <small><a class="navi-link" href="{% url 'password_reset_page' %}">No sé mi clave</a></small>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-success margin-bottom-none btn-pill" name="login_submit" type="submit">Ingresar</button>
+              </div>
+            </div>
+          </form>
+          {%endblock%}
+        </div>
+
+      </div>
+    </div>
+{% endblock %}

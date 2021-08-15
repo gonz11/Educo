@@ -1,0 +1,50 @@
+{% load i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="robots" content="NOARCHIVE,NOCACHE" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        {# Block where global CSS will go. #}
+        {% block styles %}{% endblock %}
+
+        {# Additional CSS - specific to certain pages #}
+        {% block extrastyles %}{% endblock %}
+
+        {% block extrahead %}{% endblock %}
+
+    </head>
+
+    <body id="default " class="{% block body_class %}default{% endblock %}">
+        {# Main content goes in this 'layout' block #}
+        {% block layout %}{% endblock %}
+
+        {# Scripts loaded from a CDN. #}
+        {% block cdn_scripts %}
+            <!-- jQuery -->
+            <script src="{% static 'js/vendor.min.js' %}"></script>
+        {% endblock %}
+
+        {# Local scripts #}
+        {% block scripts %}
+            <script src="{% static 'js/bootstrap.js'%}"></script>
+        {% endblock %}
+
+        {# Additional JS scripts #}
+        {% block extrascripts %}{% endblock %}
+
+        {# Block for body onload functions #}
+        <script>
+            $(function() {
+                {% block onbodyload %}{% endblock %}
+            });
+        </script>
+
+        {# Page meta-data - this is populated by the 'metadata' template context processor #}
+    </body>
+</html>

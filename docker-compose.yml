@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+
+    web:
+        build:
+            context: ./web
+            dockerfile: Dockerfile
+            args:
+                - DJANGO_ENV=dev
+        hostname: web
+        env_file: 
+           - .env  
+        command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8080"
+        volumes: 
+            - ./web:/web
+        depends_on: 
+            - "db"           
+        ports:
+            - "8080:8080"
+
+    db:
+        image: postgres:9.6   
+        env_file: 
+            - .env
+        volumes:
+            - ./db/pgdata:/var/lib/postgresql/data/pgdata
+        ports:
+            - "5432"
+
+ 
+
+

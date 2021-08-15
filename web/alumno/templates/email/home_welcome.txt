@@ -1,0 +1,16 @@
+¡Bienvenido a {{company}}!
+
+Hola {{name}}:
+Gracias por registrarte en {{company}}.
+¡Estamos encantados de poder darte la bienvenida!
+
+Puedes reservar nuestros libros accediendo al siguiente enlace:
+
+{{site_root}}{% url 'elegir_libros'%}
+
+
+Saludos,
+{{company}}
+
+
+{% include 'email/home_footer.txt' %}

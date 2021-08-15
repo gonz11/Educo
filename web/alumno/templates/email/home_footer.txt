@@ -1,0 +1,2 @@
+Nuestro equipo de {{company}} te ha enviado este correo electrónico.
+{{company}}, Córdoba, Argentina.

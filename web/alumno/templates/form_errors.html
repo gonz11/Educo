@@ -1,0 +1,19 @@
+{% if form.errors %}
+<!-- If there is a non field errors, then display it-->
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span>
+            <i class="icon-slash"></i>&nbsp;&nbsp;
+    <span class="text-medium text-uppercase"></span>{{form.non_field_errors}}.</div>
+    {% endif %}
+<!-- Iterate in form fields -->
+    {% for field in form %}
+<!-- Iterate in field's error -->
+        {% for error in field.errors %}
+        <div class="alert alert-danger alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span>
+            <i class="icon-slash"></i>&nbsp;&nbsp;
+            <span class="text-medium text-uppercase">{{field.name}}:</span> {{error}}.</div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}

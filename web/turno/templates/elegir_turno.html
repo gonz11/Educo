@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{%block contenido %}
+<!-- Page Content-->
+<div class="container pb-3">
+    <div class="text-center mt-3">
+        <h3>Elegir turno</h3>
+    </div>
+    <div class="table-responsive ">
+        <table class="table table-hover ">
+           <head>
+                <tr>
+                    <th>Dia</th>
+                    <th>Hora</th>
+                </tr>
+            </head>
+            <tbody>
+                {%for dia in dias %}
+                <tr>
+                    <td>
+                        {{dia.dia.day}}/{{dia.dia.month}}/{{dia.dia.year}}
+                    </td>
+                    <td>
+                    {%for hora in dia.horas %}
+                        <a href="{% url 'elegir_turno' %}?id_turno={{id_turno}}&fecha={{dia.dia.year}}-{{dia.dia.month}}-{{dia.dia.day}}T{{hora}}:00" class="btn btn-success btn-pill btn-sm">{{hora}}</a>
+                    {%endfor%}
+
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,15 @@
+¡CONFIRMA TU CORREO ELECTRÓNICO!
+
+Hola, {{name}}:
+
+Gracias por regístrate en {{company}}.
+Está todo listo para que accedas a tu cuenta y te unas a la comunidad.
+ Para empezar, por favor confirma tu correo electrónico.
+Para confirmar, por favor haz click en el siguiente enlace:
+<a href="{{url}}">Confirmar Correo Electrónico</a>
+
+Saludos,
+{{company}}.
+
+
+{% include 'email/home_footer.txt' %}

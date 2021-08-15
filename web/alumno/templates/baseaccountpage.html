@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+{% block bar_navigation_title %}<span class="first-name">{{user.get_first_name}}</span>{%endblock%}
+{% block bar_navigation_list_complete%}
+{%endblock%}
+
+
+{% block content_wrapper%}
+<!-- Page Content-->
+<div class="container padding-bottom-3x mb-2">
+  <div class="row">
+    <div class="col-lg-4">
+        <div class="user-info">
+          <div class="user-data text-center mb-3">
+              <i class="fa fa-user-circle fa-4x"></i>
+            <h4 class="h5 full-name mb-0" >{{user.get_full_name}}</h4>
+            <span class="text-muted text-xxs">{{ user.get_email }}</span>
+          </div>
+        </div>
+      <nav class="list-group">
+          <a class="list-group-item {% if active_tab == 'profile' %}active{% endif %}" href="{% url 'customer:summary' %}"><i class="icon-user"></i>{% trans "Mis datos" %}</a>
+          <a class="list-group-item with-badge {% if active_tab == 'orders' %}active{% endif %}" href="{% url 'customer:order-list' %}">
+              <i class="icon-shopping-bag"></i>{% trans "Compras" %}
+              {% if user.count_open_orders%}
+              <span class="badge badge-default badge-pill">{{user.count_open_orders}}</span>
+              {%endif%}
+          </a>
+
+      </nav>
+    </div>
+    <div class="col-lg-8">
+      <div class="padding-top-3x mt-2 hidden-lg-up"></div>
+        {%block content_account %}
+        {%endblock%}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{%block footer %}
+{% endblock %}

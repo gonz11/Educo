@@ -1,0 +1,55 @@
+[
+  {
+    "model":"turno.EstadoTurno",
+    "fields":{
+      "nombre":"Creado"
+    },
+    "pk":1
+  },
+  {
+    "model":"turno.Creado",
+    "fields":{
+    },
+    "pk":1
+  },
+  {
+    "model":"turno.EstadoTurno",
+    "fields":{
+      "nombre":"Por Retirar"
+    },
+    "pk":2
+  },
+  {
+    "model":"turno.PorRetirar",
+    "fields":{
+    },
+    "pk":2
+  },
+  {
+    "model":"turno.EstadoTurno",
+    "fields":{
+      "nombre":"Retirado"
+    },
+    "pk":3
+  },
+  {
+    "model":"turno.Retirado",
+    "fields":{
+    },
+    "pk":3
+  },
+  {
+    "model":"turno.EstadoTurno",
+    "fields":{
+      "nombre":"Cancelado"
+    },
+    "pk":4
+  },
+  {
+    "model":"turno.Cancelado",
+    "fields":{
+    },
+    "pk":4
+  }
+]
+

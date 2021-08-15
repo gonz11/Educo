@@ -1,0 +1,15 @@
+Django==2.1
+gunicorn==19.6.0
+psycopg2==2.6.2
+whitenoise==2.0.6
+requests>=2.3.0
+django-model-utils==3.1.2
+django-jet
+six
+Pillow
+django-s3direct<1.0
+mercadopago
+django-cities-light==3.5.0
+django-autoslug-iplweb==1.9.4.dev0
+
+
